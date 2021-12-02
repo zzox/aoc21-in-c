@@ -29,6 +29,7 @@ int main () {
         // walking through strings and copying the "tokens" to the words array
         while (token != NULL) {
             strcpy(words[i], token);
+            // could be done better, as this mutates the original array
             token = strtok(NULL, " ");
             i++;
         }
