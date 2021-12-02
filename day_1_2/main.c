@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// function declaration with return type and type params
 void shift_window (int window_vals[], int new_val);
 
 int main () {
@@ -39,6 +40,7 @@ int main () {
     return 0;
 }
 
+// function definition after declaration
 void shift_window (int window_vals[], int new_val) {
     window_vals[0] = window_vals[1];
     window_vals[1] = window_vals[2];
