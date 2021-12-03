@@ -4,7 +4,7 @@
 
 int main () {
     FILE *ptr_file;
-    char *filename = "input/day_2_1.txt";
+    char *filename = "input/day_02_1.txt";
 
     ptr_file = fopen(filename, "r");
 
