@@ -15,6 +15,8 @@ int bingos[10][5] = {
     {4, 9, 14, 19, 24},
 };
 
+int winners[100] = {0};
+
 int found_yet (int guesses[], int index, int val) {
     for (int i = 0; i <= index; i++) {
         if (guesses[i] == val) {
@@ -89,18 +91,28 @@ int main () {
                     found_yet(guesses, guess, boards[board][bingos[b][3]]) &&
                     found_yet(guesses, guess, boards[board][bingos[b][4]])
                 ) {
-                    printf("winner\n");
-
-                    int tot = 0;
-                    for (int item = 0; item < 25; item++) {
-                        if (!found_yet(guesses, guess, boards[board][item])) {
-                            tot += boards[board][item];
+                    // figure out which one won last
+                    int total_winners = 0;
+                    for (int winner = 0; winner < 100; winner++) {
+                        if (winners[winner] == 1) {
+                            total_winners++;
                         }
                     }
 
-                    printf("\n%d\n", tot * guesses[guess]);
-                    fclose(ptr_file);
-                    return 0;
+                    if (total_winners == 99 && winners[board] == 0) {
+                        int tot = 0;
+                        for (int item = 0; item < 25; item++) {
+                            if (!found_yet(guesses, guess, boards[board][item])) {
+                                tot += boards[board][item];
+                            }
+                        }
+
+                        printf("\n%d\n", tot * guesses[guess]);
+                        fclose(ptr_file);
+                        return 0;
+                    }
+
+                    winners[board] = 1;
                 }
             }
         }
