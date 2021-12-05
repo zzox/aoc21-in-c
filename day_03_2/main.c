@@ -24,8 +24,6 @@ int main () {
 
     // initialize a string of length 20 to hold text
     char str[20];
-    // chars need to be numbers, not "0" and "1"
-
     char vals[1000][13];
 
     int j = 0;
@@ -69,7 +67,6 @@ int main () {
 
     char dest_epsilon[1000][13];
     int epsilon_rate = -1;
-    // https://en.cppreference.com/w/cpp/string/byte/memcpy
     memcpy(dest_epsilon, vals, sizeof dest_epsilon);
 
     try = 0;

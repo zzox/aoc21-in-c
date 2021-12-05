@@ -46,7 +46,6 @@ int main () {
         if (strcmp(words[0], "forward") == 0) {
             x += val;
         }
-
     }
 
     // %d is needed to print ints, while %s is used for strings
