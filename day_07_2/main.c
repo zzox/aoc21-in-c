@@ -3,7 +3,7 @@
 #include <string.h>
 #include <limits.h>
 
-int increment (int val) {
+int increment_old (int val) {
     int item = 0;
 
     for (int i = 1; i <= val; i++) {
@@ -11,6 +11,11 @@ int increment (int val) {
     }
 
     return item;
+}
+
+// O(1)
+int increment (int val) {
+    return val * (val + 1) / 2;
 }
 
 int main () {
